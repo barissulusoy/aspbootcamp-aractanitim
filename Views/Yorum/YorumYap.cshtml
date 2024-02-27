@@ -1,0 +1,23 @@
+@model songece.Models.Siniflar.Yorumlar
+@{
+    ViewBag.Title = "YorumYap";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+	  
+<div class="content-form">
+		
+		<h3>Yorum Yapın</h3>
+					<form asp-action="YorumYap" method="post">
+					<div class="form-group">
+						<input type="hidden" asp-for="Blogid"/>
+						<input type="hidden" asp-for="Userid" value="@ViewBag.userId" />
+						<input type="hidden" asp-for="KullaniciAdi" value="@ViewBag.username" />
+						<input type="hidden" asp-for="Mail" value="@ViewBag.userMail" />
+						
+						<label asp-for="Yorum"></label>
+						<textarea asp-for="Yorum" class="form-control" required></textarea>
+						<span asp-validation-for="Yorum" class="text-danger"></span>
+					</div>
+						<button type="submit" class="btn btn-primary">Gönder</button>
+					</form>
+</div>

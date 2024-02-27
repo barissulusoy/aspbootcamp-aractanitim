@@ -1,0 +1,22 @@
+@model songece.Models.Siniflar.Yorumlar
+
+@{  ViewBag.title="YorumGetir";
+    Layout= "~/Views/Shared/_AdminLayout.cshtml";}
+
+    <h2>Yorum Güncelleme</h2>
+    <br />
+    @using (Html.BeginForm("YorumGuncelle","Admin",FormMethod.Post)){
+
+    <div class="mb-3">
+        @Html.LabelFor(x => x.Id, new { @class = "form-label"})
+        @Html.TextAreaFor(x => x.Id, new { @class = "form-control" })
+    </div>
+
+        <div class="mb-3">
+        @Html.LabelFor(x => x.Yorum, new { @class = "form-label" })
+        @Html.TextAreaFor(x => x.Yorum,15,1 ,new { @class = "form-control" })
+        
+    </div>
+
+    <button type="submit" class="btn btn-success">Yorum Güncelle</button>
+        }

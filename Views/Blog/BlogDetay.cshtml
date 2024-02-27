@@ -1,0 +1,90 @@
+@model songece.Models.Siniflar.BlogYorum
+
+@{
+    Layout= "~/Views/Shared/_TestLayout.cshtml";}
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
+	<link href="~/web2/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<link href="~/web2/css/style.css" rel='stylesheet' type='text/css' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" 
+	/>
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!----webfonts---->
+		<link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+		<!----//webfonts---->
+		  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+<!---header---->			
+
+</div>
+<!--/header-->
+<div class="single">
+	 <div class="container">
+		  <div class="col-md-8 single-main">
+			@foreach(var k in Model.Blog1){				 
+			  <div class="single-grid">
+					<img src="~/web2/images/post1.jpg" alt=""/>	
+					<h2>@k.Baslik</h2>					 					 
+					<p>@k.Aciklama</p>
+			  </div>
+			  }
+			@if (Model.Yorum1 != null && Model.Yorum1.Any()){
+				@foreach(var y in Model.Yorum1){
+					<ul class="comment-list">
+						
+						<li><img src="~/web2/images/avatar.png" class="img-responsive" alt="">
+						<div class="desc">
+							<p>@y.KullaniciAdi</p>
+							<p>:</p>
+							<p>@y.Yorum</p>
+						</div>
+						<div class="clearfix"></div>
+						</li>
+					</ul>
+				}}
+			  else{ <p>Henüz yorum bulunmamaktadır.</p>}
+		  </div>
+<div class="container">
+		  <div class="content-form">
+			
+				<form method="post" action="/Yorum/YorumYap">
+					<!-- BlogId'yi saklamak için gizli input -->
+					@foreach(var y in Model.Blog1){
+					<input type="hidden" name="Blogid" value="@y.Id" />}
+
+					<!-- Diğer bilgileri de saklayabilirsiniz -->
+					<!-- Örneğin, Kullanıcı Adı -->
+					<input type="hidden" name="KullaniciAdi" value="@User.Identity.Name" />
+
+					
+				
+					<!-- Yorum Alanı -->
+					<textarea placeholder="Yorum Yapınız" name="Yorum" required></textarea>
+
+					<!-- Gönder Butonu -->
+					<input type="submit" value="Gönder"/>
+				</form>
+		</div>
+	</div>	
+
+			  
+				 
+		  </div>
+	  </div>
+</div>
+<!---->
+</body>
+</hmtl>
+
+	

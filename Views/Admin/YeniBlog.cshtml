@@ -1,0 +1,37 @@
+@model songece.Models.Siniflar.Blog
+
+
+@{
+    ViewBag.title="YeniBlog";
+    Layout= "~/Views/Shared/_AdminLayout.cshtml";}
+
+
+
+<h2>Yeni Blog ekle</h2>
+
+<br />
+<form class="form-group" method="post">
+    
+<div class="mb-3">
+        @Html.LabelFor(x => x.Baslik, new { @class = "form-label" })
+        @Html.TextAreaFor(x => x.Baslik, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(x => x.Tarih, new { @class = "form-label" })
+        @Html.TextAreaFor(x => x.Tarih, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(x => x.BlogImage, new { @class = "form-label" })
+        @Html.TextAreaFor(x => x.BlogImage, new { @class = "form-control" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(x => x.Aciklama, new { @class = "form-label" })
+        @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Blog Ekle</button>
+
+</form>
